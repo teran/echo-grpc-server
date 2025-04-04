@@ -5,6 +5,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 
 	"github.com/teran/echo-grpc-server/presenter/proto"
 )
@@ -34,7 +35,7 @@ func (h *remoteEchoHandlers) RemoteEcho(ctx context.Context, req *proto.RemoteEc
 		"message": msg,
 	}).Infof("message received")
 
-	dial, err := grpc.Dial(remote, grpc.WithInsecure())
+	dial, err := grpc.NewClient(remote, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return nil, err
 	}
