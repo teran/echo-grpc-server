@@ -6,7 +6,7 @@ toolchain go1.24.2
 
 require (
 	github.com/kelseyhightower/envconfig v1.4.0
-	github.com/sirupsen/logrus v1.9.3
+	github.com/sirupsen/logrus v1.9.4
 	github.com/stretchr/testify v1.11.1
 	github.com/teran/go-grpctest v0.0.6
 	google.golang.org/grpc v1.77.0
